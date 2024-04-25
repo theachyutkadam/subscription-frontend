@@ -1,0 +1,41 @@
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Roles Listing</h4>
+        <button class="create-button btn-success">Create New Role</button>
+  
+        <p class="card-description">
+          <!-- Add class <code>.table</code> -->
+        </p>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>DeletedAt</th>
+                <th>createdAt</th>
+                <th>Status</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (role of roles; track $index) {
+                <tr>
+                  <td>{{ role.id }}</td>
+                  <td>{{ role.name }}</td>
+                  <td>{{ role.deletedAt }}</td>
+                  <td>{{ role.createdAt }}</td>
+                  <td>{{ role.description }}</td>
+                  <td>
+                    <span class="badge {{checkStatus(role.status)}} rounded-pill">{{role.status}}</span>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  

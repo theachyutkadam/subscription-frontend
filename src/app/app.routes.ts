@@ -3,6 +3,7 @@ import { LoginComponent } from './components/login/login.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { UsersComponent } from './components/users/users.component';
+import { RolesComponent } from './components/roles/roles.component';
 
 export const routes: Routes = [
     {
@@ -20,7 +21,8 @@ export const routes: Routes = [
         children: [
           { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
           { path: 'dashboard', component: DashboardComponent},
-          { path: 'users', component: UsersComponent}
+          { path: 'users', component: UsersComponent},
+          { path: 'roles', component: RolesComponent}
         ]
       }
 ];
