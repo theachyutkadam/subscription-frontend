@@ -6,6 +6,7 @@ import { UsersComponent } from './components/users/users.component';
 import { RolesComponent } from './components/roles/roles.component';
 import { AuthorizationsComponent } from './components/authorizations/authorizations.component';
 import { PlansComponent } from './components/plans/plans.component';
+import { SubscriptionsComponent } from './components/subscriptions/subscriptions.component';
 // import { NgModule } from '@angular/core';
 
 export const routes: Routes = [
@@ -27,7 +28,8 @@ export const routes: Routes = [
           { path: 'users', component: UsersComponent},
           { path: 'roles', component: RolesComponent},
           { path: 'authorizations', component: AuthorizationsComponent},
-          { path: 'plans', component: PlansComponent}
+          { path: 'plans', component: PlansComponent},
+          { path: 'subscriptions', component: SubscriptionsComponent}
         ]
       }
 ];
