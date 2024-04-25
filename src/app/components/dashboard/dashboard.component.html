@@ -1,0 +1,442 @@
+<div class="col-sm-12">
+    <div class="home-tab">
+      <div class="d-sm-flex align-items-center justify-content-between border-bottom">
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active ps-0" id="home-tab" data-bs-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">Earnings</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#audiences" role="tab" aria-selected="false">Refunds</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="contact-tab" data-bs-toggle="tab" href="#demographics" role="tab" aria-selected="false">Decline</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link border-0" id="more-tab" data-bs-toggle="tab" href="#more" role="tab" aria-selected="false">Payouts</a>
+          </li>
+        </ul>
+        <div>
+          <div class="btn-wrapper">
+            <a href="#" class="btn btn-otline-dark align-items-center"><i class="icon-share"></i> Share</a>
+            <a href="#" class="btn btn-otline-dark"><i class="icon-printer"></i> Print</a>
+            <a href="#" class="btn btn-primary text-white me-0"><i class="icon-plus"></i> New</a>
+          </div>
+        </div>
+      </div>
+      <div class="tab-content tab-content-basic">
+        <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview"> 
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="statistics-details d-flex align-items-center justify-content-between">
+                <div>
+                  <p class="statistics-title">Sales</p>
+                  <h3 class="rate-percentage">$52,600 <span class="text-success text-medium">+3,042</span></h3>
+                  <p class="statistics-title">Compared to $34,100</p>
+                </div>
+                <div>
+                  <p class="statistics-title">Purchase</p>
+                  <h3 class="rate-percentage">$32,431 <span class="text-danger text-medium">-1,042</span></h3>
+                  <p class="statistics-title">Compared to $42,200</p>
+                </div>
+                <div>
+                  <p class="statistics-title">Return</p>
+                  <h3 class="rate-percentage">$28,838 <span class="text-success text-medium">+4,189</span></h3>
+                  <p class="statistics-title">Compared to $26,140</p>
+                </div>
+                <div class="d-none d-md-block">
+                  <p class="statistics-title">Marketing</p>
+                  <h3 class="rate-percentage">$64,541 <span class="text-danger text-medium">-2,678</span></h3>
+                  <p class="statistics-title">Compared to $94,550</p>
+                </div>
+                <div class="d-none d-md-block">
+                  <p class="statistics-title">Campaign</p>
+                  <h3 class="rate-percentage">$2431 <span class="text-danger text-medium">+6,102</span></h3>
+                  <p class="statistics-title">Compared to $14,470</p>
+                </div>
+                <div class="d-none d-md-block">
+                  <p class="statistics-title">Profit</p>
+                  <h3 class="rate-percentage">$28,431 <span class="text-danger text-medium">-1,024</span></h3>
+                  <p class="statistics-title">Compared to $31,900</p>
+                </div>
+              </div>
+            </div>
+          </div> 
+          <div class="row">
+            <div class="col-lg-8 d-flex flex-column">
+              <div class="row flex-grow">
+                <div class="col-12 grid-margin stretch-card">
+                  <div class="card card-rounded">
+                    <div class="card-body">
+                      <div class="d-sm-flex justify-content-between align-items-center">
+                        <div>
+                          <h4 class="card-title card-title-dash">Sales Summery</h4>
+                        </div>
+                        <div>
+                          <div id="sales-trend-legend"></div>
+                        </div>
+                        <div>
+                          <div class="dropdown">
+                            <button class="btn btn-outline-light border dropdown-toggle toggle-dark btn-lg mb-0 me-0" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Weekly </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                              <h6 class="dropdown-header">April</h6>
+                              <a class="dropdown-item" href="#">May</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div class="chartjs-bar-wrapper mt-3">
+                        <canvas id="salesTrendSales"></canvas> 
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row flex-grow">
+                <div class="col-12 grid-margin stretch-card">
+                  <div class="card card-rounded">
+                    <div class="card-body">
+                      <div class="align-items-start">
+                        <div>
+                          <h4 class="card-title card-title-dash">Top Products</h4>
+                        </div>
+                        <div>
+                          <p>Best selling products in the store</p>
+                        </div>
+                      </div>
+                      <div class="table-responsive  mt-1">
+                        <table class="table select-table">
+                          <thead>
+                            <tr>
+                              <th><p class="dark-text fs-14">Product Name</p></th>
+                              <th><p class="dark-text fs-14">Category</p></th>
+                              <th><p class="dark-textfs-14">Author</p></th>
+                              <th><p class="dark-text fs-14">Price</p></th>
+                              <th><p class="dark-text fs-14">Status<p></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td><p class="dark-text fs-14">Redmi 9pro</p></td>
+                              <td><p class="dark-text fs-14">Mobile</p></td>
+                              <td><p class="dark-text fs-14">Albert Roy</p> </td>
+                              <td><p class="dark-text fs-14">$2,000</p></td>
+                              <td><div class="badge badge-outline-success rounded">Available</div></td>
+                            </tr>
+                            <tr>
+                              <td><p class="dark-text fs-14">Asus Vivobook</p></td>
+                              <td><p class="dark-text fs-14">Laptop</p></td>
+                              <td><p class="dark-text fs-14">Alex David</p> </td>
+                              <td><p class="dark-text fs-14">$10,000</p></td>
+                              <td><div class="badge badge-outline-success rounded">Available</div></td>
+                            </tr>
+                            <tr>
+                              <td><p class="dark-text fs-14">SanDisk</p></td>
+                              <td><p class="dark-text fs-14">Pendrive</p></td>
+                              <td><p class="dark-text fs-14">Steffi Tom</p></td>
+                              <td><p class="fs-14">$100</p></td>
+                              <td><div class="badge badge-outline-danger rounded">Not Available</div></td>
+                            </tr>
+                            <tr>
+                              <td><p class="dark-text fs-14">Galexy Note 8</p></td>
+                              <td><p class="dark-text fs-14">Mobile</p></td>
+                              <td><p class="dark-text fs-14">Walt Puro</p></td>
+                              <td><p class="dark-text fs-14">$6,000</p></td>
+                              <td><div class="badge badge-outline-success rounded">Available</div></td>
+                            </tr>
+                            <tr>
+                              <td><p class="dark-text fs-14">Tab 5</p></td>
+                              <td><p class="dark-text fs-14">Tablet</p></td>
+                              <td><p class="dark-text fs-14">Jim John</p></td>
+                              <td><p class="dark-text fs-14">$4,000</p></td>
+                              <td><div class="badge badge-outline-danger rounded">Not Available</div></td>
+                            </tr>
+                            <tr>
+                              <td><p class="dark-text fs-14">iWatch</p></td>
+                              <td><p class="dark-text fs-14">Watch</p></td>
+                              <td><p class="dark-text fs-14">Roy Nobby</p></td>
+                              <td><p class="dark-text fs-14">$400</p></td>
+                              <td><div class="badge badge-outline-success rounded">Available</div></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 d-flex flex-column">
+              <div class="row flex-grow">
+                <div class="col-12 col-lg-4 col-lg-12 grid-margin stretch-card">
+                  <div class="card card-rounded">
+                    <div class="card-body">
+                      <div>
+                        <h4 class="card-title card-title-dash">Customers</h4>
+                        <p class="text-small">Information about your customers</p>
+                       </div>
+                      <div class="chartjs-wrapper mt-4">
+                        <div class="customer-sale-chart-legends">
+                          <div class="row">
+                            <div class="col-sm-6 mb-3">
+                              <h3 class="text-primary">40%</h3>
+                              <p class="opacity-half-dark">Current Customers</p>
+                            </div>
+                            <div class="col-sm-6 mb-3">
+                              <h3 class="text-info">30%</h3>
+                              <p class="opacity-half-dark">New Customers</p>
+                            </div>
+                            <div class="col-sm-6 mb-3">
+                              <h3 class="text-success">30%</h3>
+                              <p class="opacity-half-dark">Retargeted Customers</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="sales-daoughnut-height">
+                        <canvas class="my-auto" id="doughnutChartSales" height="170px"></canvas>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-4 col-lg-12 grid-margin stretch-card">
+                  <div class="card card-rounded">
+                    <div class="card-body">
+                      <div>
+                        <h4 class="card-title card-title-dash">Total Sales by Unit</h4>
+                        <h3 class="mt-3 mb-5">$473.85</h3>
+                        <div class="progress mt-5">
+                          <div class="progress-bar bg-info" role="progressbar" style="width: 60%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100" data-placement="top" data-toggle="tooltip" title="60%"></div>
+                          <div class="progress-bar bg-primary" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" aria-valuemax="100" data-placement="top" data-toggle="tooltip" title="30%"></div>
+                          <div class="progress-bar bg-success" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" aria-valuemax="100" data-placement="top" data-toggle="tooltip" title="10%"></div>
+                        </div>
+                        <div class="lenear-multiple-progress-legends d-flex justify-content-between">
+                          <div>
+                            <h3>30%</h3>
+                            <h4><span class="bg-info"></span>Sales</h4>
+                          </div>
+                          <div>
+                            <h3>60%</h3>
+                            <h4><span class="bg-primary"></span>Marketing</h4>
+                          </div>
+                          <div>
+                            <h3>10%</h3>
+                            <h4><span class="bg-success"></span>Finance</h4>
+                          </div>
+                        </div>
+                       </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6 d-flex flex-column">
+              <div class="row flex-grow">
+                <div class="col-12 col-lg-4 col-lg-12 grid-margin stretch-card">
+                  <div class="card card-rounded">
+                    <div class="card-body">
+                      <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                        <h4 class="card-title card-title-dash">Sales Report</h4>
+                        </div>
+                        <div>
+                          <div class="dropdown">
+                            <button class="btn btn-outline-light border dropdown-toggle toggle-dark btn-lg mb-0 me-0" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Weekly </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                              <h6 class="dropdown-header">Monthly</h6>
+                              <a class="dropdown-item" href="#">Yearly</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="chartjs-wrapper mt-4 chart-height-dash">
+                        <canvas id="salesReportSales"></canvas>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 d-flex flex-column">
+              <div class="row flex-grow">
+                <div class="col-12 col-lg-4 col-lg-12 grid-margin stretch-card">
+                  <div class="card card-rounded">
+                    <div class="card-body">
+                      <h4 class="card-title card-title-dash">Total Followers</h4>
+                      <div class="circle-progress-content">
+                        <h2 class="text-primary">360</h2>
+                        <p>Installed Campaign</p>
+                      </div>
+                      <div id="totalFollowers" class="progressbar-js-circle rounded p-3"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 d-flex flex-column">
+              <div class="row flex-grow">
+                <div class="col-12 col-lg-4 col-lg-12 grid-margin stretch-card">
+                  <div class="card card-rounded">
+                    <div class="card-body">
+                      <h4 class="card-title card-title-dash">Total Campaigns</h4>
+                      <div class="circle-progress-content">
+                        <h2 class="text-info">360</h2>
+                        <p>Installed Campaign</p>
+                      </div>
+                      <div id="totalCampaigns" class="progressbar-js-circle rounded p-3"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4 d-flex flex-column">
+              <div class="row flex-grow">
+                <div class="col-12 col-lg-4 col-lg-12 grid-margin stretch-card">
+                  <div class="card card-rounded">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-lg-12">
+                          <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div>
+                              <h4 class="card-title card-title-dash">Customer List</h4>
+                            </div>
+                          </div>
+                          <div class="mt-3">
+                            <div class="wrapper d-flex align-items-center justify-content-between py-2 border-bottom">
+                              <div class="d-flex">
+                                <img class="img-sm rounded" src="assets/images/faces/face1.jpg" alt="profile">
+                                <div class="wrapper ms-3">
+                                  <p class="ms-1 mb-1 fw-bold">Isabella Becker</p>
+                                  <small class="text-muted mb-0">isabellabacker</small>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="wrapper d-flex align-items-center justify-content-between py-2 border-bottom">
+                              <div class="d-flex">
+                                <img class="img-sm rounded" src="assets/images/faces/face2.jpg" alt="profile">
+                                <div class="wrapper ms-3">
+                                  <p class="ms-1 mb-1 fw-bold">Alex Joshi</p>
+                                  <small class="text-muted mb-0">alex00123</small>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="wrapper d-flex align-items-center justify-content-between py-2 border-bottom">
+                              <div class="d-flex">
+                                <img class="img-sm rounded" src="assets/images/faces/face3.jpg" alt="profile">
+                                <div class="wrapper ms-3">
+                                  <p class="ms-1 mb-1 fw-bold">Catherin Rott</p>
+                                  <small class="text-muted mb-0">catherinrott</small>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="wrapper d-flex align-items-center justify-content-between py-2 border-bottom">
+                              <div class="d-flex">
+                                <img class="img-sm rounded" src="assets/images/faces/face4.jpg" alt="profile">
+                                <div class="wrapper ms-3">
+                                  <p class="ms-1 mb-1 fw-bold">Selva Dobi</p>
+                                  <small class="text-muted mb-0">selvadobi801</small>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="wrapper d-flex align-items-center justify-content-between py-2 border-bottom">
+                              <div class="d-flex">
+                                <img class="img-sm rounded" src="assets/images/faces/face5.jpg" alt="profile">
+                                <div class="wrapper ms-3">
+                                  <p class="ms-1 mb-1 fw-bold">Aman Walt</p>
+                                  <small class="text-muted mb-0">amanwalt</small>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="wrapper d-flex align-items-center justify-content-between pt-2">
+                              <div class="d-flex">
+                                <img class="img-sm rounded" src="assets/images/faces/face6.jpg" alt="profile">
+                                <div class="wrapper ms-3">
+                                  <p class="ms-1 mb-1 fw-bold">Stella Beyr</p>
+                                  <small class="text-muted mb-0">stella1234</small>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-8 d-flex flex-column">
+              <div class="row flex-grow">
+                <div class="col-12 col-lg-4 col-lg-12 grid-margin stretch-card">
+                  <div class="card card-rounded">
+                    <div class="card-body">
+                      <h4 class="card-title card-title-dash">Product Sales</h4>
+                      <div class="table-responsive  mt-1">
+                        <table class="table select-table">
+                          <thead>
+                            <tr>
+                              <th><p class="dark-text fs-14">Product Name</p></th>
+                              <th><p class="dark-text fs-14">Sales</p></th>
+                              <th><p class="dark-text fs-14">Record Point</p></th>
+                              <th><p class="dark-text fs-14">Stock</p></th>
+                              <th><p class="dark-text fs-14">Amount</p></th>
+                              <th><p class="dark-text fs-14">Stock Status<p></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td><p class="dark-text fs-14">Adidas Shoes</p></td>
+                              <td><p class="dark-text fs-14">453</p></td>
+                              <td><p class="dark-text fs-14">04</p> </td>
+                              <td><p class="dark-text fs-14">447</p></td>
+                              <td><p class="dark-text fs-14">$293.01</p></td>
+                              <td><div class="badge badge-info">In Stock</div></td>
+                            </tr>
+                            <tr>
+                              <td><p class="dark-text fs-14">Puma Sports Wear</p></td>
+                              <td><p class="dark-text fs-14">567</p></td>
+                              <td><p class="dark-text fs-14">08</p> </td>
+                              <td><p class="dark-text fs-14">225</p></td>
+                              <td><p class="dark-text fs-14">$578.21</p></td>
+                              <td><div class="badge badge-danger">Out of Stock</div></td>
+                            </tr>
+                            <tr>
+                              <td><p class="dark-text fs-14">Nike Casual Shoes</p></td>
+                              <td><p class="dark-text fs-14">122</p></td>
+                              <td><p class="dark-text fs-14">05</p></td>
+                              <td><p class="fs-14">765</p></td>
+                              <td><p class="dark-text fs-14">$312.10</p></td>
+                              <td><div class="badge badge-info">In Stock</div></td>
+                            </tr>
+                            <tr>
+                              <td><p class="dark-text fs-14">Adidas Football</p></td>
+                              <td><p class="dark-text fs-14">324</p></td>
+                              <td><p class="dark-text fs-14">03</p></td>
+                              <td><p class="dark-text fs-14">347</p></td>
+                              <td><p class="dark-text fs-14">$145.02</p></td>
+                              <td><div class="badge badge-info">In Stock</div></td>
+                            </tr>
+                            <tr>
+                              <td><p class="dark-text fs-14">Puma T-shirts</p></td>
+                              <td><p class="dark-text fs-14">412</p></td>
+                              <td><p class="dark-text fs-14">07</p></td>
+                              <td><p class="dark-text fs-14">692</p></td>
+                              <td><p class="dark-text fs-14">$424.26</p></td>
+                              <td><div class="badge badge-danger">Out of Stock</div></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

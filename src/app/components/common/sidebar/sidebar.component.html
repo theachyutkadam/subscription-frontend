@@ -1,0 +1,81 @@
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <ul class="nav">
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/dashboard">
+          <i class="mdi mdi-grid-large menu-icon"></i>
+          <span class="menu-title">Dashboard</span>
+        </a>
+      </li>
+  
+    <li class="nav-item nav-category">Orders</li>
+  
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="collapse" href="#ui-order" aria-expanded="false" aria-controls="ui-basic">
+          <i class="menu-icon mdi mdi-card-text-outline"></i>
+          <span class="menu-title">Revenue Orders</span>
+          <i class="menu-arrow"></i> 
+        </a>
+        <div class="collapse" id="ui-order">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item">
+               <a class="nav-link" routerLink="/revenue" routerLinkActive="active">Revenue</a></li>
+          </ul>
+        </div>
+      </li>
+  
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/payment" routerLinkActive="active">
+          <i class="mdi mdi-cube-outline menu-icon"></i>
+          <span class="menu-title">Payments</span>
+        </a>
+      </li>
+  
+  
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/users" routerLinkActive="active">
+          <i class="menu-icon mdi mdi mdi-face"></i>
+          <span class="menu-title">Users</span>
+        </a>
+      </li>
+    
+
+    
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+          <i class="menu-icon mdi mdi-card-text-outline"></i>
+          <span class="menu-title">Resources</span>
+          <i class="menu-arrow"></i> 
+        </a>
+        <div class="collapse" id="ui-basic">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" routerLink="/resources" routerLinkActive="active">Resources</a></li>
+          </ul>
+        </div>
+      </li>
+  
+  
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="menu-icon mdi mdi-email-outline"></i>
+          <span class="menu-title">Configuration</span>
+        </a>
+      </li>
+  
+      <li class="nav-item">
+        <a class="nav-link" href="">
+          <i class="menu-icon mdi mdi-file-image-outline"></i>
+          <span class="menu-title">Overview</span>
+        </a>
+      </li>
+     
+      <li class="nav-item nav-category">help</li>
+      
+      <li class="nav-item">
+        <a>
+          <i class="menu-icon mdi mdi-power"></i>
+          <span class="menu-title">Logout</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
