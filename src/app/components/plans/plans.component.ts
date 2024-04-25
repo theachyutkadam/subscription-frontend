@@ -2,31 +2,31 @@ import { Component, OnInit } from '@angular/core';
 import { HttpServices } from '../../connections/services/http-services';
 
 @Component({
-  selector: 'app-authorizations',
+  selector: 'app-plans',
   standalone: true,
   imports: [],
-  templateUrl: './authorizations.component.html',
-  styleUrl: './authorizations.component.css'
+  templateUrl: './plans.component.html',
+  styleUrl: './plans.component.css'
 })
-export class AuthorizationsComponent implements OnInit {
-  authorizations:any
+export class PlansComponent implements OnInit {
+  plans:any
   constructor(private _http: HttpServices) {}
 
   ngOnInit(): void {
-    this.getAuthorizations()
+    this.getPlans()
   }
- 
- getAuthorizations() {
-   this._http.get('authorizations', '').subscribe((response: any) => {
+
+  getPlans() {
+    this._http.get('plans', '').subscribe((response: any) => {
     console.warn("response", response)
-    this.authorizations = response.data
+    this.plans = response.data
   },
   (err: any) => {
     console.log(err);
   })
-}
+ }
 
-checkAuth(status: any){
+ checkActive(status: any){
   if(status == "1"){
     return "btn-success"
   }
@@ -35,4 +35,5 @@ checkAuth(status: any){
   }
   return "btn-primary"
 }
+
 }
