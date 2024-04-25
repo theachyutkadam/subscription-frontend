@@ -1,0 +1,46 @@
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Authorizations Listing</h4>
+        <button class="create-button btn-success">Create New Authorization</button>
+  
+        <p class="card-description">
+          <!-- Add class <code>.table</code> -->
+        </p>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Path</th>
+                <th>RoleID</th>
+                <th>Can Read</th>
+                <th>Can Write</th>
+                <th>Can Update</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for ( authorization of authorizations; track $index) {
+                <tr>
+                  <td>{{ authorization.id }}</td>
+                  <td>{{ authorization.path }}</td>
+                  <td>{{ authorization.role_id }}</td>
+                  <td>
+                    <span class="badge {{checkAuth(authorization.can_read)}} rounded-pill">{{authorization.can_read}}</span>
+                  </td>
+                  <td>
+                    <span class="badge {{checkAuth(authorization.can_write)}} rounded-pill">{{authorization.can_write}}</span>
+                  </td>
+                  <td>
+                    <span class="badge {{checkAuth(authorization.can_update)}} rounded-pill">{{authorization.can_update}}</span>
+                  </td>
+
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  
