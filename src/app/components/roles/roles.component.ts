@@ -53,6 +53,7 @@ throw new Error('Method not implemented.');
 
 
 
+
   checkStatus(status: any){
     if(status == "active"){
       return "btn-success"
@@ -66,7 +67,24 @@ throw new Error('Method not implemented.');
     if(status == "deleted"){
       return "btn-danger"
     }
+    if(status == "null"){
+      return "btn-danger"
+    }
+    
+  
     return "btn-primary"
   }
 
+  checkDeleted(status: any): string {
+    if (status === "null") {
+      return "btn-success";
+    }
+    if (status === "0") {
+      return "btn-danger";
+    }
+    return "btn-primary";
+  }
+
 }
+
+

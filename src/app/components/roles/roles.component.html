@@ -13,7 +13,7 @@
               <tr>
                 <th>ID</th>
                 <th>Name</th>
-                <th>Deleted At</th>
+                <th>Is Deleted</th>
                 <th>Created At</th>
                 <th>Description</th>
                 <th>Status</th>
@@ -25,7 +25,10 @@
                 <tr>
                   <td>{{ role.id }}</td>
                   <td>{{ role.name }}</td>
-                  <td>{{ role.deletedAt }}</td>
+                  <!-- <td>{{ role.deletedAt }}</td> -->
+                  <td>
+                    <span class="badge {{checkDeleted(role.deletedAt)}} rounded-pill">{{role.deletedAt}}</span>
+                  </td>
                   <td>{{ role.createdAt }}</td>
                   <td>{{ role.description }}</td>
                   <td>
