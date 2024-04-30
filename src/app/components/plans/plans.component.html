@@ -3,7 +3,7 @@
       <div class="card-body">
         <h4 class="card-title">Plans Listing</h4>
         <button class="create-button btn-success">Create New Plan</button>
-  
+
         <p class="card-description">
           <!-- Add class <code>.table</code> -->
         </p>
@@ -17,9 +17,8 @@
                 <th>Is Active</th>
                 <th>Type</th>
                 <th>Description</th>
-                <th>Created At</th>
-                <th>Updated At</th>
                 <th>Expire At</th>
+                <th>Created At</th>
               </tr>
             </thead>
             <tbody>
@@ -33,9 +32,8 @@
                   </td>
                   <td>{{ plan.type}}</td>
                   <td>{{ plan.description}}</td>
-                  <td>{{ plan.createdAt}}</td>
-                  <td>{{ plan.updatedAt}}</td>
-                  <td>{{ plan.expire_at}}</td>
+                  <td>{{ plan.expire_at | dateFormat}}</td>
+                  <td>{{ plan.createdAt | dateFormat}}</td>
 
                 </tr>
               }
@@ -45,4 +43,3 @@
       </div>
     </div>
   </div>
-  

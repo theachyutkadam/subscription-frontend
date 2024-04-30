@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpServices } from '../../connections/services/http-services';
+import { DateFormatPipe } from '../../date-format.pipe';
 
 @Component({
   selector: 'app-users',
   standalone: true,
-  imports: [],
+  imports: [DateFormatPipe],
   templateUrl: './users.component.html',
   styleUrl: './users.component.css'
 })

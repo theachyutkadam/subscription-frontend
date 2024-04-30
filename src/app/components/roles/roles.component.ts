@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpServices } from '../../connections/services/http-services';
+import { DateFormatPipe } from '../../date-format.pipe';
 
 @Component({
   selector: 'app-roles',
   standalone: true,
-  imports: [],
+  imports: [DateFormatPipe],
   templateUrl: './roles.component.html',
   styleUrl: './roles.component.css'
 })
