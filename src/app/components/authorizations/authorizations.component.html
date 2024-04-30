@@ -17,6 +17,7 @@
                 <th>Can Read</th>
                 <th>Can Write</th>
                 <th>Can Update</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -33,6 +34,10 @@
                   </td>
                   <td>
                     <span class="badge {{checkAuth(authorization.can_update)}} rounded-pill">{{authorization.can_update}}</span>
+                  </td>
+                  <td>
+                    <button class="btn btn-primary btn-sm" (click)="updateUser">Edit</button>
+                    <button class="btn btn-danger btn-sm" (click)="deleteAuthorization(authorization)">Delete</button>
                   </td>
 
                 </tr>

@@ -8,6 +8,9 @@ import { api_url, api_base_url, authToken} from '../api-config';
 })
 
 export class HttpServices {
+  getPlans() {
+    throw new Error('Method not implemented.');
+  }
   constructor(private _http: HttpClient) { }
 
   httpHeader = new HttpHeaders({

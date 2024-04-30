@@ -10,6 +10,7 @@ import { HttpServices } from '../../connections/services/http-services';
 })
 export class UsersComponent implements OnInit{
   users: any;
+updateUser: any;
   constructor(private _http: HttpServices) {}
 
   ngOnInit() {
@@ -24,6 +25,22 @@ export class UsersComponent implements OnInit{
     (err: any) => {
       console.log(err);
     })
+  }
+
+  deleteUsers(userId: any) {
+    return this._http.delete(`users/${userId}`);
+  }
+  
+  deleteUser(user: any): void {
+    const userId = user.id;
+    this.deleteUsers(userId).subscribe(
+      () => {
+        this.users = this.users?.filter((u: { id: any; }) => u.id !== userId);
+      },
+      (error: any) => {
+        console.error('Error deleting user:', error);
+      }
+    );
   }
 
   checkStatus(status: any){

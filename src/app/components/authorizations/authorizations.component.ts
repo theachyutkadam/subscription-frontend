@@ -10,6 +10,7 @@ import { HttpServices } from '../../connections/services/http-services';
 })
 export class AuthorizationsComponent implements OnInit {
   authorizations:any
+updateUser: any;
   constructor(private _http: HttpServices) {}
 
   ngOnInit(): void {
@@ -24,6 +25,22 @@ export class AuthorizationsComponent implements OnInit {
   (err: any) => {
     console.log(err);
   })
+}
+
+deleteAuthorizations(authorizationId: any) {
+  return this._http.delete(`authorizations/${authorizationId}`);
+}
+
+deleteAuthorization(authorization: any): void {
+  const authorizationId = authorization.id;
+  this.deleteAuthorizations(authorizationId).subscribe(
+    () => {
+      this.authorizations = this.authorizations?.filter((u: { id: any; }) => u.id !== authorizationId);
+    },
+    (error: any) => {
+      console.error('Error deleting authorizations:', error);
+    }
+  );
 }
 
 checkAuth(status: any){
