@@ -29,14 +29,11 @@ export class UsersComponent implements OnInit{
   checkStatus(status: any){
     if(status == "active"){
       return "btn-success"
-    }
-    if(status == "pending"){
+    }else if(status == "pending"){
       return "btn-warning"
-    }
-    if(status == "inactive"){
+    }else if(status == "inactive"){
       return "btn-secondary"
-    }
-    if(status == "deleted"){
+    }else if(status == "deleted"){
       return "btn-danger"
     }
     return "btn-primary"
