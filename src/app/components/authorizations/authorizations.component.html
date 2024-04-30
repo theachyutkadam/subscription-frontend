@@ -3,7 +3,7 @@
       <div class="card-body">
         <h4 class="card-title">Authorizations Listing</h4>
         <button class="create-button btn-success">Create New Authorization</button>
-  
+
         <p class="card-description">
           <!-- Add class <code>.table</code> -->
         </p>
@@ -17,6 +17,8 @@
                 <th>Can Read</th>
                 <th>Can Write</th>
                 <th>Can Update</th>
+                <th>Can Delete</th>
+                <th>Created At</th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -27,19 +29,22 @@
                   <td>{{ authorization.path }}</td>
                   <td>{{ authorization.role_id }}</td>
                   <td>
-                    <span class="badge {{checkAuth(authorization.can_read)}} rounded-pill">{{authorization.can_read}}</span>
+                    <span class="badge {{checkAccess(authorization.can_read)}} rounded-pill">{{authorization.can_read}}</span>
                   </td>
                   <td>
-                    <span class="badge {{checkAuth(authorization.can_write)}} rounded-pill">{{authorization.can_write}}</span>
+                    <span class="badge {{checkAccess(authorization.can_write)}} rounded-pill">{{authorization.can_write}}</span>
                   </td>
                   <td>
-                    <span class="badge {{checkAuth(authorization.can_update)}} rounded-pill">{{authorization.can_update}}</span>
+                    <span class="badge {{checkAccess(authorization.can_update)}} rounded-pill">{{authorization.can_update}}</span>
                   </td>
                   <td>
                     <button class="btn btn-primary btn-sm" (click)="updateUser">Edit</button>
                     <button class="btn btn-danger btn-sm" (click)="deleteAuthorization(authorization)">Delete</button>
                   </td>
-
+                  <td>
+                    <span class="badge {{checkAccess(authorization.can_delete)}} rounded-pill">{{authorization.can_delete}}</span>
+                  </td>
+                  <td>{{ authorization.createdAt | dateFormat }}</td>
                 </tr>
               }
             </tbody>
@@ -48,4 +53,3 @@
       </div>
     </div>
   </div>
-  

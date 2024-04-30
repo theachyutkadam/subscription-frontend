@@ -1,14 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+
+
 import { HttpServices } from '../../connections/services/http-services';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 // import { DatePipe } from '@angular/common';
+import { DateFormatPipe } from '../../date-format.pipe';
 
 @Component({
   selector: 'app-plans',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, DateFormatPipe],
   templateUrl: './plans.component.html',
   styleUrls: ['./plans.component.css']
 })

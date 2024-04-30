@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { HttpServices } from '../../connections/services/http-services';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { DateFormatPipe } from '../../date-format.pipe';
 
 @Component({
   selector: 'app-subscriptions',
   standalone: true,
-  imports: [FormsModule,CommonModule],
+  imports: [FormsModule, CommonModule, DateFormatPipe],
   templateUrl: './subscriptions.component.html',
   styleUrl: './subscriptions.component.css'
 })

@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpServices } from '../../connections/services/http-services';
+import { DateFormatPipe } from '../../date-format.pipe';
 
 @Component({
   selector: 'app-authorizations',
   standalone: true,
-  imports: [],
+  imports: [DateFormatPipe],
   templateUrl: './authorizations.component.html',
   styleUrl: './authorizations.component.css'
 })
@@ -16,7 +17,7 @@ updateUser: any;
   ngOnInit(): void {
     this.getAuthorizations()
   }
- 
+
  getAuthorizations() {
    this._http.get('authorizations', '').subscribe((response: any) => {
     console.warn("response", response)
@@ -43,13 +44,7 @@ deleteAuthorization(authorization: any): void {
   );
 }
 
-checkAuth(status: any){
-  if(status == "1"){
-    return "btn-success"
-  }
-  if(status == "0"){
-    return "btn-danger"
-  }
-  return "btn-primary"
+checkAccess(status: any){
+  return status == "1" ? "btn-success" : "btn-danger"
 }
 }

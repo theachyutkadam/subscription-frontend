@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpServices } from '../../connections/services/http-services';
+import { DateFormatPipe } from '../../date-format.pipe';
 
 @Component({
   selector: 'app-users',
   standalone: true,
-  imports: [],
+  imports: [DateFormatPipe],
   templateUrl: './users.component.html',
   styleUrl: './users.component.css'
 })
@@ -46,14 +47,11 @@ updateUser: any;
   checkStatus(status: any){
     if(status == "active"){
       return "btn-success"
-    }
-    if(status == "pending"){
+    }else if(status == "pending"){
       return "btn-warning"
-    }
-    if(status == "inactive"){
+    }else if(status == "inactive"){
       return "btn-secondary"
-    }
-    if(status == "deleted"){
+    }else if(status == "deleted"){
       return "btn-danger"
     }
     return "btn-primary"
