@@ -38,13 +38,13 @@
                     <span class="badge {{checkAccess(authorization.can_update)}} rounded-pill">{{authorization.can_update}}</span>
                   </td>
                   <td>
-                    <button class="btn btn-primary btn-sm" (click)="updateUser">Edit</button>
-                    <button class="btn btn-danger btn-sm" (click)="deleteAuthorization(authorization)">Delete</button>
-                  </td>
-                  <td>
-                    <span class="badge {{checkAccess(authorization.can_delete)}} rounded-pill">{{authorization.can_delete}}</span>
+                    <span class="badge {{checkAccess(authorization.can_update)}} rounded-pill">{{authorization.can_update}}</span>
                   </td>
                   <td>{{ authorization.createdAt | dateFormat }}</td>
+                  <td>
+                    <button class="btn btn-primary btn-sm" (click)="updateUser">Edit</button>&nbsp;
+                    <button class="btn btn-danger btn-sm" (click)="deleteAuthorization(authorization)">Delete</button>
+                  </td>
                 </tr>
               }
             </tbody>

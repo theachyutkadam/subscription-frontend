@@ -3,7 +3,7 @@
       <div class="card-body">
         <h4 class="card-title">Roles</h4>
         <button class="create-button btn-success">Create New Role</button>
-  
+
         <p class="card-description">
           <!-- Add class <code>.table</code> -->
         </p>
@@ -13,10 +13,10 @@
               <tr>
                 <th>ID</th>
                 <th>Name</th>
-                <th>Is Deleted</th>
-                <th>Created At</th>
-                <th>Description</th>
                 <th>Status</th>
+                <th>Is Deleted</th>
+                <th>Description</th>
+                <th>Created At</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -25,17 +25,16 @@
                 <tr>
                   <td>{{ role.id }}</td>
                   <td>{{ role.name }}</td>
-                  <!-- <td>{{ role.deletedAt }}</td> -->
-                  <td>
-                    <span class="badge {{checkDeleted(role.deletedAt)}} rounded-pill">{{role.deletedAt}}</span>
-                  </td>
-                  <td>{{ role.createdAt }}</td>
-                  <td>{{ role.description }}</td>
                   <td>
                     <span class="badge {{checkStatus(role.status)}} rounded-pill">{{role.status}}</span>
                   </td>
                   <td>
-                    <button class="btn btn-primary btn-sm" (click)="updateUser">Edit</button>
+                    <span class="badge {{checkDeleted(role.deletedAt)}} rounded-pill">{{role.deletedAt ? true: false}}</span>
+                  </td>
+                  <td>{{ role.description }}</td>
+                  <td>{{ role.createdAt | dateFormat }}</td>
+                  <td>
+                    <button class="btn btn-primary btn-sm" (click)="updateUser">Edit</button>&nbsp;
                     <button class="btn btn-danger btn-sm" (click)="deleteRole(roles)">Delete</button>
                   </td>
                 </tr>
@@ -46,4 +45,3 @@
       </div>
     </div>
   </div>
-  

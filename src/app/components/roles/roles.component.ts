@@ -9,18 +9,18 @@ import { DateFormatPipe } from '../../date-format.pipe';
   templateUrl: './roles.component.html',
   styleUrl: './roles.component.css'
 })
-export class RolesComponent implements OnInit{
-updateUser(arg0: any) {
-throw new Error('Method not implemented.');
-}
-deleteUser(arg0: any) {
-throw new Error('Method not implemented.');
-}
-  roles:any;
-  constructor(private _http: HttpServices) {}
+export class RolesComponent implements OnInit {
+  updateUser(arg0: any) {
+    throw new Error('Method not implemented.');
+  }
+  deleteUser(arg0: any) {
+    throw new Error('Method not implemented.');
+  }
+  roles: any;
+  constructor(private _http: HttpServices) { }
 
   ngOnInit(): void {
-      this.getRoles()
+    this.getRoles()
   }
 
   getRoles() {
@@ -30,15 +30,15 @@ throw new Error('Method not implemented.');
       this.roles = response.data
       console.log("get roles successfull")
     },
-    (err: any) => {
-      console.log(err);
-    })
+      (err: any) => {
+        console.log(err);
+      })
   }
 
   deleteRoles(roleId: any) {
     return this._http.delete(`roles/${roleId}`);
   }
-  
+
   deleteRole(role: any): void {
     const roleId = role.id;
     this.deleteRoles(roleId).subscribe(
@@ -51,39 +51,31 @@ throw new Error('Method not implemented.');
     );
   }
 
-
-
-
-
-  checkStatus(status: any){
-    if(status == "active"){
+  checkStatus(status: any) {
+    if (status == "active") {
       return "btn-success"
     }
-    if(status == "pending"){
+    if (status == "pending") {
       return "btn-warning"
     }
-    if(status == "inactive"){
+    if (status == "inactive") {
       return "btn-secondary"
     }
-    if(status == "deleted"){
+    if (status == "deleted") {
       return "btn-danger"
     }
-    if(status == "null"){
-      return "btn-danger"
-    }
-    
-  
     return "btn-primary"
   }
 
   checkDeleted(status: any): string {
-    if (status === "null") {
-      return "btn-success";
-    }
-    if (status === "0") {
-      return "btn-danger";
-    }
-    return "btn-primary";
+    return status == null ? "btn-success" : "btn-danger"
+    // if (status === null) {
+    //   return "btn-success";
+    // }
+    // if (status === "0") {
+    //   return "btn-danger";
+    // }
+    // return "btn-primary";
   }
 
 }

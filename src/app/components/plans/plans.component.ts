@@ -54,7 +54,7 @@ export class PlansComponent implements OnInit {
   deletePlans(planId: any) {
     return this._http.delete(`plans/${planId}`);
   }
-  
+
   deletePlan(plan: any): void {
     const planId = plan.id;
     this.deletePlans(planId).subscribe(
@@ -71,8 +71,8 @@ export class PlansComponent implements OnInit {
     console.log('Selected Plan:', plan);
     this.selectedPlan = { ...plan };
     console.log('Selected Plan after setting:', this.selectedPlan);
-    
-    this.toggleUpdateForm(); 
+
+    this.toggleUpdateForm();
   }
   updatePlan(plan: any): void {
     const planId = plan.id;
@@ -111,13 +111,7 @@ export class PlansComponent implements OnInit {
   // }
 
   checkActive(status: any): string {
-    if (status === "1") {
-      return "btn-success";
-    }
-    if (status === "0") {
-      return "btn-danger";
-    }
-    return "btn-primary";
+    return status == 1 ? "btn-success" : "btn-danger";
   }
 }
 

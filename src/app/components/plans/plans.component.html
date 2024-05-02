@@ -16,10 +16,10 @@
                 <th>Price</th>
                 <th>Is Active</th>
                 <th>Type</th>
-                <th>Description</th>
                 <th>Expire At</th>
-                <th>Action</th>
+                <th>Description</th>
                 <th>Created At</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
@@ -30,19 +30,16 @@
                   <td>{{ plan.price }}</td>
                   <td>
                     <span class="badge {{checkActive(plan.is_active)}} rounded-pill">{{plan.is_active}}</span>
+                    <!-- <span class="badge {{checkDeleted(role.deletedAt)}} rounded-pill">{{role.deletedAt ? true: false}}</span> -->
                   </td>
                   <td>{{ plan.type}}</td>
+                  <td>{{ plan.expire_at | dateFormat}}</td>
                   <td>{{ plan.description}}</td>
-                  <!-- <td>{{ plan.createdAt}}</td> -->
-                  <td>{{ formattedDate }}</td>
-                  <td>{{ plan.updatedAt}}</td>
-                  <td>{{ plan.expire_at}}</td>
+                  <td>{{ plan.createdAt | dateFormat}}</td>
                   <td>
-                    <button class="btn btn-primary btn-sm" (click)=updatePlans(plan)>Edit</button>
+                    <button class="btn btn-primary btn-sm" (click)=updatePlans(plan)>Edit</button>&nbsp;
                     <button class="btn btn-danger btn-sm" (click)="deletePlan(plan)">Delete</button>
                   </td>
-                  <td>{{ plan.expire_at | dateFormat}}</td>
-                  <td>{{ plan.createdAt | dateFormat}}</td>
 
                 </tr>
               }
@@ -52,7 +49,7 @@
       </div>
     </div>
   </div>
-  
+
 
 
 
@@ -66,7 +63,7 @@
       <div class="card-body">
         <h4 class="card-title">Update Plan Form</h4>
         <p class="card-description">Update Plan</p>
-        
+
         <div class="form-group">
           <label for="exampleInputName">ID</label>
           <input type="text" class="form-control"  placeholder="ID" [(ngModel)]="selectedPlan.id">
@@ -89,7 +86,7 @@
           <label for="exampleInputType">Type</label>
           <input type="text" class="form-control" placeholder="Type" [(ngModel)]="selectedPlan.type">
         </div>
-        
+
         <div class="form-group">
           <label for="exampleInputDescription">Description</label>
           <input type="text" class="form-control" placeholder="Description" [(ngModel)]="selectedPlan.description">
