@@ -10,7 +10,7 @@ import { DateFormatPipe } from '../../date-format.pipe';
   styleUrl: './users.component.css'
 })
 export class UsersComponent implements OnInit {
-  user_informations: any;
+  users: any;
   updateUser: any;
   constructor(private _http: HttpServices) { }
 
@@ -19,9 +19,9 @@ export class UsersComponent implements OnInit {
   }
 
   getUsers() {
-    this._http.get('user_informations', '').subscribe((response: any) => {
+    this._http.get('users', '').subscribe((response: any) => {
       console.warn("response", response)
-      this.user_informations = response.data
+      this.users = response.data
     },
       (err: any) => {
         console.log(err);

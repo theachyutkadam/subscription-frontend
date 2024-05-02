@@ -12,10 +12,11 @@
           <thead>
             <tr>
               <th>ID</th>
-              <th>Name</th>
+              <th>Company</th>
+              <!-- <th>Name</th> -->
               <th>Email</th>
-              <th>Contact</th>
-              <th>Gender</th>
+              <!-- <th>Contact</th> -->
+              <!-- <th>Gender</th> -->
               <th>Role</th>
               <th>Status</th>
               <th>CreatedAt</th>
@@ -23,22 +24,23 @@
             </tr>
           </thead>
           <tbody>
-            @for (user_information of user_informations; track $index) {
+            @for (user of users; track $index) {
               <tr>
-                <td>{{ user_information.id }}</td>
-                <td>{{ user_information.first_name }} {{ user_information.last_name }}</td>
-                <td>{{ user_information.user.email }}</td>
-                <td>{{ user_information.contact }}</td>
-                <td>{{ user_information.gender }}</td>
-                <td>{{ user_information.user.role_id }}</td>
+                <td>{{ user.id }}</td>
+                <td>{{ user.Company.name }}</td>
+                <!-- <td>{{ user.first_name }} {{ user.last_name }}</td> -->
+                <td>{{ user.email }}</td>
+                <!-- <td>{{ user.contact }}</td> -->
+                <!-- <td>{{ user.gender }}</td> -->
+                <td>{{ user.role.name }}</td>
                 <td>
-                  <span class="badge {{checkStatus(user_information.user.status)}} rounded-pill">{{user_information.user.status}}</span>
+                  <span class="badge {{checkStatus(user.status)}} rounded-pill">{{user.status}}</span>
                 </td>
-                <td>{{ user_information.user.createdAt | dateFormat }}</td>
+                <td>{{ user.createdAt | dateFormat }}</td>
                 <td>
                   <button class="btn btn-primary btn-sm" (click)="updateUser">Edit</button>&nbsp;
-                  <button class="btn btn-sm {{user_information.user.deletedAt ? 'btn-success' : 'btn-danger'}}" (click)="deleteUser(user_information)">
-                    {{user_information.user.deletedAt ? "Undo" : "Delete"}}
+                  <button class="btn btn-sm {{user.deletedAt ? 'btn-success' : 'btn-danger'}}" (click)="deleteUser(user)">
+                    {{user.deletedAt ? "Undo" : "Delete"}}
                   </button>
                 </td>
               </tr>
