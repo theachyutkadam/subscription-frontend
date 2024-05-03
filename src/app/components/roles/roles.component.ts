@@ -1,26 +1,46 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpServices } from '../../connections/services/http-services';
 import { DateFormatPipe } from '../../date-format.pipe';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { FormGroup, Validators } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-roles',
   standalone: true,
-  imports: [DateFormatPipe],
+  imports: [DateFormatPipe, ReactiveFormsModule, CommonModule, FormsModule],
   templateUrl: './roles.component.html',
   styleUrl: './roles.component.css'
 })
 export class RolesComponent implements OnInit {
-  updateUser(arg0: any) {
-    throw new Error('Method not implemented.');
-  }
-  deleteUser(arg0: any) {
+
+  updateRole(arg0: any) {
     throw new Error('Method not implemented.');
   }
   roles: any;
+  selectedRole: any | null = null;
+  showUpdateModal: boolean = false;
+  newRole: any = {
+    name: '',
+    status: '',
+    description: '',
+    deletedAt: '',
+  };
+  roleForm!: FormGroup;
+  fb: FormBuilder = new FormBuilder();
+
   constructor(private _http: HttpServices) { }
 
   ngOnInit(): void {
-    this.getRoles()
+    this.getRoles();
+    this.roleForm = this.fb.group({
+      name: ['', Validators.required],
+      status: ['', Validators.required],
+      description: ['', Validators.required],
+      deletedAt: ['', Validators.required]
+    });
   }
 
   getRoles() {
@@ -51,6 +71,38 @@ export class RolesComponent implements OnInit {
     );
   }
 
+  // createRoles(newRole: any) {
+  //   console.log('Roles Start', newRole)
+  //   this._http.post('roles', newRole).subscribe(
+  //     (response: any) => {
+  //       console.log('Role created successfully:', response);
+  //       this.roles.push(response.data);
+  //     },
+  //     (error: any) => {
+  //       console.error('Error creating Role:', error);
+  //       console.log('Roles', newRole)
+  //     }
+  //   );
+  // }
+  createRoles() {
+    const params = {
+      "name": this.roleForm.value.name,
+      "status": 'active',
+      "description": this.roleForm.value.description,
+      // "deletedAt" : 'null'
+    }
+    this._http.post('roles', params).subscribe(
+      (response: any) => {
+        console.log('Role created successfully:', response);
+        this.roles.push(response.data);
+      },
+      (error: any) => {
+        console.error('Error creating Role:', error);
+        console.log('Roles', params)
+      }
+    );
+  }
+
   checkStatus(status: any) {
     if (status == "active") {
       return "btn-success"
@@ -69,15 +121,5 @@ export class RolesComponent implements OnInit {
 
   checkDeleted(status: any): string {
     return status == null ? "btn-success" : "btn-danger"
-    // if (status === null) {
-    //   return "btn-success";
-    // }
-    // if (status === "0") {
-    //   return "btn-danger";
-    // }
-    // return "btn-primary";
   }
-
 }
-
-

@@ -2,7 +2,9 @@
   <div class="card">
     <div class="card-body">
       <h4 class="card-title">Roles</h4>
-      <button class="create-button btn-success">Create New Role</button>
+      <!-- <button class="create-button btn-success">Create New Role</button> -->
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createRoleModal">Create New
+        Role</button>
 
       <p class="card-description">
         <!-- Add class <code>.table</code> -->
@@ -35,13 +37,67 @@
               <td>{{ role.description }}</td>
               <td>{{ role.createdAt | dateFormat }}</td>
               <td>
-                <button class="btn btn-primary btn-sm" (click)="updateUser">Edit</button>&nbsp;
+                <button class="btn btn-primary btn-sm" (click)="updateRole(selectedRole)">Edit</button>&nbsp;
                 <button class="btn btn-danger btn-sm" (click)="deleteRole(roles)">Delete</button>
               </td>
             </tr>
             }
           </tbody>
         </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- New Role Form Modal -->
+<div class="modal fade" id="createRoleModal" tabindex="-1" aria-labelledby="createRoleModalLabel" aria-hidden="true"
+  data-backdrop="static">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="createRoleModalLabel">Create New Role</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="col-md-10">
+          <div class="card">
+            <div class="card-body">
+              <form [formGroup]="roleForm" (ngSubmit)="createRoles()">
+                <div class="mb-3">
+                  <label for="exampleInputName" class="form-label">Name</label>
+                  <input type="text" class="form-control" placeholder="Name" formControlName="name">
+                  <div *ngIf="roleForm?.get('name')?.invalid && roleForm.get('name')?.touched" class="text-danger">
+                    Name is required.
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label">Status</label><br>
+                  <input type="radio" formControlName="status" [value]="true"> True
+                  <input type="radio" formControlName="status" [value]="false"> False
+                  <div *ngIf="roleForm.controls['status'].invalid && roleForm.controls['status'].touched"
+                    class="text-danger">
+                    Please select an option.
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="exampleInputDescription" class="form-label">Description</label>
+                  <input type="text" class="form-control" placeholder="Description" formControlName="description">
+                  <div *ngIf="roleForm.controls['description'].invalid && roleForm.controls['description'].touched"
+                    class="text-danger">
+                    Description is required.
+                  </div>
+                </div>
+
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">Create Plan</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
