@@ -1,108 +1,112 @@
 <div class="col-lg-12 grid-margin stretch-card">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Subscriptions</h4>
+      <button class="create-button btn-success">Create New Subscription</button>
+
+      <p class="card-description">
+        <!-- Add class <code>.table</code> -->
+      </p>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>UserID</th>
+              <th>PlanID</th>
+              <th>Activation Date</th>
+              <th>Expired Date</th>
+              <th>Plan Price</th>
+              <th>Created At</th>
+              <th>Updated At</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          {{subscriptions.error}}
+          <tbody>
+            @for ( subscription of subscriptions.data; track $index) {
+            <tr>
+              <td>{{ subscription.id }}</td>
+              <td>{{ subscription.user_id }}</td>
+              <td>{{ subscription.plan_id }}</td>
+              <td>{{ subscription.activation_date }}</td>
+              <td>{{ subscription.expired_date }}</td>
+              <td>{{ subscription.plan_price }}</td>
+              <td>{{ subscription.createdAt }}</td>
+              <td>{{ subscription.updatedAt }}</td>
+              <td>
+                <button class="btn btn-primary btn-sm" (click)="updateSubscriptions(subscription)">Edit</button>
+                <button class="btn btn-danger btn-sm" (click)="deleteSubscription(subscription)">Delete</button>
+              </td>
+            </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="showUpdateForm">
+  <div class="col-md-6 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">Subscriptions</h4>
-        <button class="create-button btn-success">Create New Subscription</button>
+        <h4 class="card-title">Update Plan Form</h4>
+        <p class="card-description">Update Plan</p>
 
-        <p class="card-description">
-          <!-- Add class <code>.table</code> -->
-        </p>
-        <div class="table-responsive">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>UserID</th>
-                <th>PlanID</th>
-                <th>Activation Date</th>
-                <th>Expired Date</th>
-                <th>Plan Price</th>
-                <th>Created At</th>
-                <th>Updated At</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            {{subscriptions.error}}
-            <tbody>
-              @for ( subscription of subscriptions.data; track $index) {
-                <tr>
-                  <td>{{ subscription.id }}</td>
-                  <td>{{ subscription.user_id }}</td>
-                  <td>{{ subscription.plan_id }}</td>
-                  <td>{{ subscription.activation_date }}</td>
-                  <td>{{ subscription.expired_date }}</td>
-                  <td>{{ subscription.plan_price }}</td>
-                  <td>{{ subscription.createdAt }}</td>
-                  <td>{{ subscription.updatedAt }}</td>
-                  <td>
-                    <button class="btn btn-primary btn-sm" (click)="updateSubscriptions(subscription)">Edit</button>
-                    <button class="btn btn-danger btn-sm" (click)="deleteSubscription(subscription)">Delete</button>
-                  </td>
-                </tr>
-              }
-            </tbody>
-          </table>
+        <!-- Input fields for updating user information -->
+        <div class="form-group">
+          <label for="exampleInputName">ID</label>
+          <input type="text" class="form-control" placeholder="ID" [(ngModel)]="selectedSubscription.id">
         </div>
+        <div class="form-group">
+          <label for="exampleInputName">User ID</label>
+          <input type="text" class="form-control" placeholder="User ID" [(ngModel)]="selectedSubscription.user_id">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPrice">Plan ID</label>
+          <input type="text" class="form-control" placeholder="Plan ID" [(ngModel)]="selectedSubscription.plan_id">
+        </div>
+        <div class="form-group">
+          <label for="Is Active">activation_date</label>
+          <select class="form-control form-control-lg" id="activation_date"
+            [(ngModel)]="selectedSubscription.activation_date">
+            <!-- <option *ngFor="let entry of roleMappings | keyvalue" [value]="entry.key">{{ entry.value }}</option> -->
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputType">expired_date</label>
+          <input type="text" class="form-control" placeholder="expired_date"
+            [(ngModel)]="selectedSubscription.expired_date">
+        </div>
+
+        <div class="form-group">
+          <label for="exampleInputDescription">plan_price</label>
+          <input type="text" class="form-control" placeholder="plan_price"
+            [(ngModel)]="selectedSubscription.plan_price">
+        </div>
+
+        <div class="form-group">
+          <label for="exampleInputCreatedAt">Created At</label>
+          <input type="text" class="form-control" placeholder="Created At" [(ngModel)]="selectedSubscription.createdAt">
+        </div>
+
+        <div class="form-group">
+          <label for="exampleInputUpdatedAt">Updated At</label>
+          <input type="text" class="form-control" placeholder="Updated At" [(ngModel)]="selectedSubscription.updatedAt">
+        </div>
+
+        <div class="form-group">
+          <label for="exampleInputExpiredAt">Expired At</label>
+          <input type="text" class="form-control" placeholder="Expired At" [(ngModel)]="selectedSubscription.expire_at">
+        </div>
+        <!-- Button to save changes -->
+        <button type="button" class="btn btn-primary me-2" (click)="updateSubscription(subscriptions)">Save
+          Changes</button>
+        <button type="button" class="btn btn-light" (click)="cancelUpdateUser()">Cancel</button>
+
       </div>
     </div>
   </div>
-
-
-  <div *ngIf="showUpdateForm">
-    <div class="col-md-6 grid-margin stretch-card">
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title">Update Plan Form</h4>
-          <p class="card-description">Update Plan</p>
-
-          <!-- Input fields for updating user information -->
-          <div class="form-group">
-            <label for="exampleInputName">ID</label>
-            <input type="text" class="form-control"  placeholder="ID" [(ngModel)]="selectedSubscription.id">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputName">User ID</label>
-            <input type="text" class="form-control"  placeholder="User ID" [(ngModel)]="selectedSubscription.user_id">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPrice">Plan ID</label>
-            <input type="text" class="form-control" placeholder="Plan ID" [(ngModel)]="selectedSubscription.plan_id">
-          </div>
-          <div class="form-group">
-            <label for="Is Active">activation_date</label>
-            <select class="form-control form-control-lg" id="activation_date" [(ngModel)]="selectedSubscription.activation_date">
-              <!-- <option *ngFor="let entry of roleMappings | keyvalue" [value]="entry.key">{{ entry.value }}</option> -->
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="exampleInputType">expired_date</label>
-            <input type="text" class="form-control" placeholder="expired_date" [(ngModel)]="selectedSubscription.expired_date">
-          </div>
-
-          <div class="form-group">
-            <label for="exampleInputDescription">plan_price</label>
-            <input type="text" class="form-control" placeholder="plan_price" [(ngModel)]="selectedSubscription.plan_price">
-          </div>
-
-          <div class="form-group">
-            <label for="exampleInputCreatedAt">Created At</label>
-            <input type="text" class="form-control" placeholder="Created At" [(ngModel)]="selectedSubscription.createdAt">
-          </div>
-
-          <div class="form-group">
-            <label for="exampleInputUpdatedAt">Updated At</label>
-            <input type="text" class="form-control" placeholder="Updated At" [(ngModel)]="selectedSubscription.updatedAt">
-          </div>
-
-          <div class="form-group">
-            <label for="exampleInputExpiredAt">Expired At</label>
-            <input type="text" class="form-control" placeholder="Expired At" [(ngModel)]="selectedSubscription.expire_at">
-          </div>
-          <!-- Button to save changes -->
-          <button type="button" class="btn btn-primary me-2" (click)="updateSubscription(subscriptions)">Save Changes</button>
-          <button type="button" class="btn btn-light" (click)="cancelUpdateUser()">Cancel</button>
-
-          </div>
-      </div>
-    </div>
-  </div>
+</div>
