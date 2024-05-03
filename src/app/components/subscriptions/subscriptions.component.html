@@ -3,7 +3,7 @@
       <div class="card-body">
         <h4 class="card-title">Subscriptions</h4>
         <button class="create-button btn-success">Create New Subscription</button>
-  
+
         <p class="card-description">
           <!-- Add class <code>.table</code> -->
         </p>
@@ -22,8 +22,9 @@
                 <th>Actions</th>
               </tr>
             </thead>
+            {{subscriptions.error}}
             <tbody>
-              @for ( subscription of subscriptions; track $index) {
+              @for ( subscription of subscriptions.data; track $index) {
                 <tr>
                   <td>{{ subscription.id }}</td>
                   <td>{{ subscription.user_id }}</td>
@@ -53,7 +54,7 @@
         <div class="card-body">
           <h4 class="card-title">Update Plan Form</h4>
           <p class="card-description">Update Plan</p>
-          
+
           <!-- Input fields for updating user information -->
           <div class="form-group">
             <label for="exampleInputName">ID</label>
@@ -77,22 +78,22 @@
             <label for="exampleInputType">expired_date</label>
             <input type="text" class="form-control" placeholder="expired_date" [(ngModel)]="selectedSubscription.expired_date">
           </div>
-          
+
           <div class="form-group">
             <label for="exampleInputDescription">plan_price</label>
             <input type="text" class="form-control" placeholder="plan_price" [(ngModel)]="selectedSubscription.plan_price">
           </div>
-  
+
           <div class="form-group">
             <label for="exampleInputCreatedAt">Created At</label>
             <input type="text" class="form-control" placeholder="Created At" [(ngModel)]="selectedSubscription.createdAt">
           </div>
-  
+
           <div class="form-group">
             <label for="exampleInputUpdatedAt">Updated At</label>
             <input type="text" class="form-control" placeholder="Updated At" [(ngModel)]="selectedSubscription.updatedAt">
           </div>
-  
+
           <div class="form-group">
             <label for="exampleInputExpiredAt">Expired At</label>
             <input type="text" class="form-control" placeholder="Expired At" [(ngModel)]="selectedSubscription.expire_at">
@@ -100,7 +101,7 @@
           <!-- Button to save changes -->
           <button type="button" class="btn btn-primary me-2" (click)="updateSubscription(subscriptions)">Save Changes</button>
           <button type="button" class="btn btn-light" (click)="cancelUpdateUser()">Cancel</button>
-  
+
           </div>
       </div>
     </div>

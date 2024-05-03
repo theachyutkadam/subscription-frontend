@@ -26,7 +26,7 @@ showUpdateForm: any;
   getSubscriptions() {
     this._http.get('subscriptions', '').subscribe((response: any) => {
     console.warn("response", response)
-    this.subscriptions = response.data
+    this.subscriptions = response
   },
   (err: any) => {
     console.log(err);
@@ -62,8 +62,8 @@ updateSubscriptions(subscription: any): void {
   console.log('Selected Plan:', subscription);
   this.selectedSubscription = { ...subscription };
   console.log('Selected Subscription after setting:', this.selectedSubscription);
-  
-  this.toggleUpdateForm(); 
+
+  this.toggleUpdateForm();
 }
 
 
