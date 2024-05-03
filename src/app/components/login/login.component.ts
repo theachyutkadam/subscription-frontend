@@ -45,9 +45,10 @@ export class LoginComponent {
       console.warn("response", response)
       if(response.status == "success"){
         console.log('Check-login resp-->', response);
-        sessionStorage.setItem('authToken', response.token);
-        this.router.navigateByUrl('/dashboard')
+        // sessionStorage.setItem('authToken', response.token);
+        // this.router.navigateByUrl('/dashboard')
         // location.reload()
+        this.authService.signIn(response.token)
       }else{
         console.error(response.errors)
       }

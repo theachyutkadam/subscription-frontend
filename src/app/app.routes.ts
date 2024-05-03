@@ -8,30 +8,31 @@ import { AuthorizationsComponent } from './components/authorizations/authorizati
 import { PlansComponent } from './components/plans/plans.component';
 import { SubscriptionsComponent } from './components/subscriptions/subscriptions.component';
 // import { NgModule } from '@angular/core';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
-    {
-        path: '',
-        redirectTo: '/login',
-        pathMatch: 'full'
-      },
-      {
-        path: 'login',
-        component: LoginComponent
-      },
-      {
-        path: '',
-        component: LayoutComponent,
-        children: [
-          { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-          { path: 'dashboard', component: DashboardComponent},
-          { path: 'users', component: UsersComponent},
-          { path: 'roles', component: RolesComponent},
-          { path: 'authorizations', component: AuthorizationsComponent},
-          { path: 'plans', component: PlansComponent},
-          { path: 'subscriptions', component: SubscriptionsComponent}
-        ]
-      }
+  // {
+  //   path: '',
+  //   redirectTo: '/login',
+  //   pathMatch: 'full'
+  // },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      { path: 'dashboard', component: DashboardComponent, canActivate: [authGuard] },
+      { path: 'users', component: UsersComponent, canActivate: [authGuard] },
+      { path: 'roles', component: RolesComponent, canActivate: [authGuard] },
+      { path: 'plans', component: PlansComponent, canActivate: [authGuard] },
+      { path: 'subscriptions', component: SubscriptionsComponent, canActivate: [authGuard] },
+      { path: 'authorizations', component: AuthorizationsComponent, canActivate: [authGuard] },
+    ]
+  }
 ];
 
 // Test for routerLink
