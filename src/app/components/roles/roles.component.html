@@ -38,7 +38,9 @@
               <td>{{ role.createdAt | dateFormat }}</td>
               <td>
                 <button class="btn btn-primary btn-sm" (click)="updateRole(selectedRole)">Edit</button>&nbsp;
-                <button class="btn btn-danger btn-sm" (click)="deleteRole(roles)">Delete</button>
+                <button class="btn btn-sm {{role.deletedAt ? 'btn-success' : 'btn-danger'}}" (click)="deleteRole(role)">
+                  {{role.deletedAt ? "Undo" : "Delete"}}
+                </button>
               </td>
             </tr>
             }

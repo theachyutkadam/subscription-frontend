@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterOutlet } from '@angular/router';
 import { HttpServices } from '../../connections/services/http-services';
-import { AuthService } from '../../services/auth.service';
+// import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +18,7 @@ export class LoginComponent {
   input_error_message = "Invalid filed"
 
   constructor(
-    private authService: AuthService,
+    // private authService: AuthService,
     private _http: HttpServices,
     private router: Router,
     private fb: FormBuilder,
