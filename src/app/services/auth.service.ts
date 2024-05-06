@@ -16,7 +16,7 @@ export class AuthService {
   autoSignIn() {
     if (sessionStorage.getItem('authToken')) {
       this.isAuth.next(true);
-      this.router.navigate(['/dashboard']);
+      // this.router.navigate(['/dashboard']);
     }
   }
 
