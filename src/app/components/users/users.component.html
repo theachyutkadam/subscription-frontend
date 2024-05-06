@@ -13,8 +13,8 @@
             <tr>
               <th>ID</th>
               <th>Company</th>
-              <th>Name</th>
               <th>Email</th>
+              <th>Name</th>
               <th>Contact</th>
               <th>Gender</th>
               <th>Role</th>
@@ -28,10 +28,18 @@
               <tr>
                 <td>{{ user.id }}</td>
                 <td>{{ user.Company.name }}</td>
-                <td>{{ user.user_information.first_name }} {{ user.user_information.last_name }}</td>
                 <td>{{ user.email }}</td>
-                <td>{{ user.user_information.contact }}</td>
-                <td>{{ user.user_information.gender }}</td>
+                @if(user.user_information) {
+                  <td>
+                    {{ user.user_information.first_name }} {{ user.user_information.last_name }}
+                  </td>
+                  <td>{{ user.user_information.contact }}</td>
+                  <td>{{ user.user_information.gender }}</td>
+                } @else {
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                }
                 <td>{{ user.role.name }}</td>
                 <td>
                   <span class="badge {{checkStatus(user.status)}} rounded-pill">{{user.status}}</span>
