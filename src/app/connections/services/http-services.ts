@@ -1,17 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { api_url, api_base_url, authToken} from '../api-config';
+import { api_url, api_base_url} from '../api-config';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class HttpServices {
+  authToken : any = sessionStorage.getItem('authToken');
+
   getPlans() {
     throw new Error('Method not implemented.');
   }
-  constructor(private _http: HttpClient) { }
+  constructor(private _http: HttpClient) {
+    this.authToken = sessionStorage.getItem('authToken');
+  }
 
   httpHeader = new HttpHeaders({
     'content-type': 'application/json',
@@ -21,7 +25,7 @@ export class HttpServices {
   httpHeaderWithToken = new HttpHeaders({
     'Accept': 'application/json',
     'content-type': 'application/json',
-    'Authorization': `${authToken}`,
+    'Authorization': `Bearer ${this.authToken}`,
   })
 
   health(): Observable<any>{
